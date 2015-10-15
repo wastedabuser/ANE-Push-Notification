@@ -145,7 +145,7 @@ public class CreateNotificationTask extends AsyncTask<Void, Void, Boolean>
 		
 		// Notification images
 		int smallIconId = Resources.getResourseIdByName(_context.getPackageName(), "drawable", "status_icon");
-		int largeIconId = Resources.getResourseIdByName(_context.getPackageName(), "drawable", "app_icon");
+		int largeIconId = Resources.getResourseIdByName(_context.getPackageName(), "drawable", "icon");
 		if (largeIconResourceId != null)
 		{
 			largeIconId = Resources.getResourseIdByName(_context.getPackageName(), "drawable", largeIconResourceId);
@@ -171,7 +171,7 @@ public class CreateNotificationTask extends AsyncTask<Void, Void, Boolean>
 		Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 		
 		// Notification action
-		Intent notificationIntent = new Intent(_context, NotificationActivity.class);;
+		Intent notificationIntent = new Intent(_context, NotificationActivity.class);
 		notificationIntent.putExtra("params", Extension.getParametersFromIntent(_intent));
 		PendingIntent contentIntent = PendingIntent.getActivity(_context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -185,7 +185,7 @@ public class CreateNotificationTask extends AsyncTask<Void, Void, Boolean>
 			.setSound(soundUri, AudioManager.STREAM_NOTIFICATION)
 			.setWhen(System.currentTimeMillis())
 			.setAutoCancel(true)
-			.setColor(0xFF2DA9F9)
+			// .setColor(0xFF2DA9F9)
 			.setContentIntent(contentIntent);
 		
 		Notification notification = builder.build();

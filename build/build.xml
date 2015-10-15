@@ -5,7 +5,7 @@
 	<property file="build.config"/>
 
 	<!-- All -->
-	<target name="all" depends="ios,android,swc,package" description="Full build of extension"/>
+	<target name="all" depends="android,swc,package" description="Full build of extension"/>
 	<target name="all-android-debug" depends="ios,android-debug,swc,package" description="Full build of extension w/debugging on Android"/>
 
 	<!-- iOS -->
@@ -95,7 +95,7 @@
 		</exec>
 
 		<unzip src="../temp/swc/${name}.swc" dest="../temp/swc/content" overwrite="true"/>
-		<copy file="../temp/swc/content/library.swf" todir="../temp/ios" overwrite="true"/>
+		<!--<copy file="../temp/swc/content/library.swf" todir="../temp/ios" overwrite="true"/>-->
 		<copy file="../temp/swc/content/library.swf" todir="../temp/android" overwrite="true"/>
 		<copy file="../temp/swc/content/library.swf" todir="../temp/default" overwrite="true"/>
 		<delete dir="../temp/swc/content/"/>
@@ -114,7 +114,7 @@
 			<arg value="${OUTPUT_FILENAME}.ane"/>
 			<arg value="../build/extension.xml"/>
 			<arg line="-swc swc/${name}.swc"/>
-			<arg line="-platform iPhone-ARM -platformoptions ../build/platform.xml -C ios/ ."/>
+			<!--<arg line="-platform iPhone-ARM -platformoptions ../build/platform.xml -C ios/ ."/>-->
 			<arg line="-platform Android-ARM -C android/ ."/>
 			<arg line="-platform default -C default/ ."/>
 		</exec>
